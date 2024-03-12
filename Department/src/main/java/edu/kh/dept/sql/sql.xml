@@ -2,9 +2,9 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 
- 	<entry key="selectAll">
-		SELECT * FROM DEPARTMENT4
-		ORDER BY DEPT_ID ASC
-	</entry> 
-	
+    <entry key="selectAll">
+      SELECT * FROM DEPARTMENT4
+      ORDER BY DEPT_ID ASC
+   </entry> 
+   
 </properties>
