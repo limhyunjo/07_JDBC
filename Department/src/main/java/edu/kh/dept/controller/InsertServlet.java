@@ -40,7 +40,7 @@ public class InsertServlet extends HttpServlet{
 	// -> POST 방식 요청
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
+
 		try {
 			
 			// Service 객체 생성
@@ -94,12 +94,13 @@ public class InsertServlet extends HttpServlet{
 			
 		} catch(DepartmentInsertException e) {
 			// 제약조건 위배로 삽입 실패 예외가 발생한 경우
-	
+
 			// request scope 객체에 에러 메시지 세팅
 			req.setAttribute("errorMessage", e.getMessage());
 			
 			// 에러 페이지 포워드
 			String path = "/WEB-INF/views/error.jsp";
+			req.getRequestDispatcher(path).forward(req, resp);
 			
 			
 		} catch (Exception e) {
@@ -108,5 +109,9 @@ public class InsertServlet extends HttpServlet{
 		}
 	
 	}
+	
+	
+	
+	
 	
 }

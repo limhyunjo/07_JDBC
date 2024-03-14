@@ -17,10 +17,6 @@ public class Department {
 		this.locationId = locationId;
 	}
 
-
-
-
-
 	public String getDeptId() {
 		return deptId;
 	}
@@ -52,4 +48,3 @@ public class Department {
 	
 	
 }
-
