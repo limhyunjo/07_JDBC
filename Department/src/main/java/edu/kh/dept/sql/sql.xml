@@ -36,7 +36,7 @@
 	
 	<!-- 해당 부서 조회 -->
 	<entry key="searchDepartment">
-	  SELECT DEPT_TITLE
+	  SELECT *
     FROM DEPARTMENT4
     WHERE DEPT_TITLE LIKE '%'||?||'%'
 	</entry>

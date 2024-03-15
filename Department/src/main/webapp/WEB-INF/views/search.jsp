@@ -12,7 +12,15 @@
     
   <h1>${param.keyword} 검색 결과</h1>
 
-   <table border="1">
+  
+  <%-- empty : 비어있거나 null인 경우 true 반환 --%>
+  <c:if test="${empty deptList}" >
+   <h3>검색 결과가 없습니다</h3>
+  </c:if>
+
+   <%-- not empty :비어있지 않거나, null이 아닌 경우 true --%>
+   <c:if test="${not empty deptList}">
+      <table border="1">
      <thead>
 			<tr>
 				<th>행 번호</th>
@@ -36,5 +44,7 @@
 		</tbody>
   
    </table>
+   </c:if>
+  
 </body>
 </html>
