@@ -177,7 +177,8 @@ public class DepartmentDAOImpl implements DepartmentDAO{
 	}
 
 
-	@Override
+	// 부서 수정
+	@Override 
 	public int updateDepartment(Connection conn, Department dept) throws SQLException {
 		
 	

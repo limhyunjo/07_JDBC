@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/department/update")
 public class UpdateServlet extends HttpServlet{
  	
+	// 부서 조회
   @Override
 protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
