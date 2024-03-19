@@ -100,7 +100,7 @@ public class BookServiceImpl implements BookService{
 
 	
 
-
+        // 도서 삭제
 		@Override
 		public int deleteBook(int bookNo) throws SQLException {
 			Connection conn = getConnection();

@@ -169,7 +169,7 @@ public class BookDAOImpl implements BookDAO{
 		return result;
 	}
 
-
+   // 도서 한 행 선택
 	@Override
 	public Book selectOne(Connection conn, int bookNo) throws SQLException {
 		  // 결과 저장용 변수 선언
