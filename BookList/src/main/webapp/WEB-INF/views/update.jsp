@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -15,7 +17,7 @@
     <div>
       도서 번호 : 
       <input type="number" name="bookNo"
-      value="${book.bookNo}" placeholder="수정할 도서 번호">>
+      value="${book.bookNo}" placeholder="수정할 도서 번호">
      
     </div>
 
@@ -31,8 +33,8 @@
     </div>
     <div>
       저자 : 
-      <input type="text" name="deptTitle" 
-       value="${dept.deptTitle}" placeholder="수정할 저자">
+      <input type="text" name="bookAuthor" 
+       value="${book.bookAuthor}" placeholder="수정할 저자">
     </div>
 
     <div>
@@ -44,6 +46,14 @@
     <button>수정</button>
   </form>
 
+    
+      <c:if test="${not empty message}" >
+       <script>
+         alert("${message}");
+       </script>
+       
+       <c:remove var="message" />
+      </c:if>  
     
 
 </body>

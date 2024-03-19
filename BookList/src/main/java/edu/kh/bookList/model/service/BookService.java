@@ -36,4 +36,13 @@ public interface BookService {
 	 */
 	int deleteBook(int bookNo)throws SQLException;
 
+
+
+	/** 조회
+	 * @param bookNo
+	 * @return
+	 * @throws SQLException
+	 */
+	int selectBook(int bookNo) throws SQLException;
+
 }

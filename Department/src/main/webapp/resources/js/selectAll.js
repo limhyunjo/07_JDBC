@@ -96,10 +96,9 @@ for(let btn of deleteBtnList){ // 향상된 for문
     // 부서 코드 얻어오기
     const deptId = tr.children[1].innerText;
  
-    // JS에서 요청하기 (GET) -> 주소에서 바꾸기 가능
+    // JS에서 요청하기 + GET 방식 요청
     location.href = "/department/update?deptId=" + deptId;
-
-
+    
    });
     
   });

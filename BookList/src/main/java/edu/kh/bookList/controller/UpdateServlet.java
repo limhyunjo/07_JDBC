@@ -5,6 +5,7 @@ import java.io.IOException;
 import edu.kh.bookList.model.dto.Book;
 import edu.kh.bookList.model.service.BookService;
 import edu.kh.bookList.model.service.BookServiceImpl;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,10 +15,41 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/booklist/update")
 public class UpdateServlet extends HttpServlet{
 
-	    
-	 @Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
+	@Override
+		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+
+		try {
+			
+		BookService service = new BookServiceImpl(); //서비스 객체 생성
+		
+		int bookNo = Integer.parseInt(req.getParameter("bookNo"));
+
+		int book = service.selectBook(bookNo);
+			
+		
+				
+		req.setAttribute("book", book); 
+		String path = "/WEB-INF/views/update.jsp";
+		req.getRequestDispatcher(path).forward(req, resp);
+	 
+		
+	   }catch(Exception e){
+		   e.printStackTrace();
+	   }
+		  
+		
+		
+		}
+	
+	
+	
+	
+   @Override
+protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+
 		 try {
 	  			
 	  			// 서비스 객체 생성
@@ -54,9 +86,13 @@ public class UpdateServlet extends HttpServlet{
 	  		}
 	  	
 	  	}
-	  		 
+	  		    
+	   
+	 
+}
+	
 		 
 		
-	}
+	
 	  	
 

@@ -3,6 +3,7 @@ package edu.kh.bookList.model.service;
 //지정된 위치의 static을 모두 가져와 사용
 import static edu.kh.bookList.common.JDBCTemplate.*;
 
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
@@ -10,6 +11,9 @@ import java.util.List;
 import edu.kh.bookList.model.dao.BookDAO;
 import edu.kh.bookList.model.dao.BookDAOImpl;
 import edu.kh.bookList.model.dto.Book;
+
+
+
 
 
 
@@ -92,10 +96,13 @@ public class BookServiceImpl implements BookService{
 			
 		}
 
-		// 도서 삭제
+		
+
+	
+
+
 		@Override
 		public int deleteBook(int bookNo) throws SQLException {
-			
 			Connection conn = getConnection();
 			
 			int result = dao.deleteBook(conn, bookNo);
@@ -107,6 +114,21 @@ public class BookServiceImpl implements BookService{
 			
 			return result;
 		}
+
+
+		@Override
+		public int selectBook(int bookNo) throws SQLException {
+			Connection conn = getConnection();
+			
+			// 2. DAO 메서드 호출 후 결과 반환 받기
+			Book book = dao.selectOne(conn,bookNo);
+			
+			// 3. 커넥션 반환
+			close(conn);
+			
+			// 4. 결과 반환
+			return bookNo;
+		}
+
 		
-	
 }

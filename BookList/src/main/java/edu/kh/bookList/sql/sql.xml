@@ -14,14 +14,19 @@
 		VALUES(?,?,?,?,?)
 	</entry>
 	
-		
+	<!-- 도서 조회 -->
+	<entry key="selectBook">
+		SELECT * FROM TB_BOOK
+		WHERE BOOK_NO = ?
+	</entry>		
   <!-- 도서 수정 -->
 	<entry key="updateBook">
-	UPDATE TB_BOOK SET 
-  BOOK_TYPE = ?,
-  BOOK_NAME = ?,
-  BOOK_AUTHOR = ?,
-  BOOK_PUBLISHER = ?
+	UPDATE TB_BOOK
+	SET 
+	 BOOK_TYPE = ?,
+	 BOOK_NAME = ?,
+	 BOOK_AUTHOR = ?,
+	 BOOK_PUBLISHER = ?
   WHERE BOOK_NO = ?
 	</entry>
   

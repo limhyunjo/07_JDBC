@@ -18,6 +18,8 @@ import edu.kh.bookList.model.dto.Book;
 
 
 
+
+
 public class BookDAOImpl implements BookDAO{
 
 	
@@ -145,6 +147,7 @@ public class BookDAOImpl implements BookDAO{
 		return result;
 	}
 
+	// 부서 삭제
 	@Override
 	public int deleteBook(Connection conn, int bookNo) throws SQLException {
 		
@@ -165,4 +168,55 @@ public class BookDAOImpl implements BookDAO{
 		
 		return result;
 	}
-}
+
+
+	@Override
+	public Book selectOne(Connection conn, int bookNo) throws SQLException {
+		  // 결과 저장용 변수 선언
+		  Book book = null; 
+			
+		  try {
+		 
+			//SQL 얻어오기
+			String sql = prop.getProperty("selectOne");
+			  
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bookNo);
+			
+			//SQL(SELECT) 수행 후 결과 (ResultSet) 반환 받기
+			rs = pstmt.executeQuery();
+			
+			// PK를 조건으로 삼은 SELECT문은
+			// 조회 성공 시 1행만 조회됨! --> while 대신 if문으로 1회만 접근
+			
+			if(rs.next()) {
+			
+			book = new Book(
+					bookNo, rs.getString("BOOK_TYPE"),
+					rs.getString("BOOK_NAME"),
+					rs.getString("BOOK_AUTHOR"),
+					rs.getString("BOOK_PUBLISHER")
+					
+						);
+				
+			}
+			
+			
+		  }finally {
+			// 사용한 JDBC 객체 자원 반환 (커넥션 제외)
+			 close(rs);
+			 close(pstmt);
+			
+		  }
+		  
+			return book;// 조회 실패 시 null, 성공 시 null 아님
+		}
+
+		
+		
+	}
+
+	
+
+
+

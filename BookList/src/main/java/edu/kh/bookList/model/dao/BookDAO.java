@@ -39,6 +39,17 @@ public interface BookDAO {
 	 */
 	int deleteBook(Connection conn, int bookNo)throws SQLException;
 
+	
+
+
+
+	/**
+	 * @param conn
+	 * @param bookNo
+	 * @return
+	 * @throws SQLException
+	 */
+	Book selectOne(Connection conn, int bookNo)throws SQLException;
 
 
 	
